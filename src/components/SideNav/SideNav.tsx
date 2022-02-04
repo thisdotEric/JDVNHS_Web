@@ -12,24 +12,12 @@ interface ILink {
 
 const links: ILink[] = [
   {
-    to: '/subject',
-    name: 'Subject',
-  },
-  {
     to: '/students',
     name: 'Students',
-  },
-  {
-    to: '/grades',
-    name: 'Grades',
   },
   {
     to: '/attendance',
-    name: 'Students',
-  },
-  {
-    to: '/students',
-    name: 'Grades',
+    name: 'Attendance',
   },
 ];
 

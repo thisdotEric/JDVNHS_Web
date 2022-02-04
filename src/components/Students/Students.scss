@@ -1,6 +1,12 @@
-.students {
-  .table {
-    height: 600px;
+.class-students {
+  #student-table {
     margin-right: 20px;
+
+    .icon-div {
+      #del-icon {
+        color: red;
+        height: 20px;
+      }
+    }
   }
 }
