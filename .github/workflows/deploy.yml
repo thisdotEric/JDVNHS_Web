@@ -1,0 +1,26 @@
+name: Build and deploy to Netlify
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  web-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      - name: Build application
+        run: SNOWPACK_PUBLIC_JDVNHS_SERVER=${{ secrets.JDVNHS_SERVER }} yarn build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: 'build'
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
